@@ -1,0 +1,13 @@
+# test output
+**/.DS_STORE
+
+# build output
+dist
+
+# dependencies
+node_modules
+.env
+package-lock.json
+
+# setting
+settings.json
