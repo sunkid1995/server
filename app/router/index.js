@@ -7,7 +7,7 @@ import auth from '../controllers/Auth';
 import checkAuth from '../middleware/checkAuth';
 
 // multer
-import multerImage from '../multerImage';
+// import multerImage from '../multerImage';
 
 const router = new Router();
 /**

@@ -32,13 +32,13 @@ const defaultConfig = {
 const envConfig = {
   development: { // Môi trường dev
     mongo: {
-      uri: process.env.MONGO_URI || 'mongodb://localhost/blogdb',
+      uri: process.env.MONGO_URI || 'mongodb://localhost/db',
     },
   },
 
   production: { // Môi trường product
     mongo: {
-      uri: process.env.MONGO_URI || 'mongodb://localhost/27017/blogdb',
+      uri: process.env.MONGO_URI || 'mongodb://localhost/27017/db',
     },
   },
 };
