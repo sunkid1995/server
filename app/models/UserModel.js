@@ -1,19 +1,35 @@
 import mongoose from 'mongoose';
 
+const message = 'không được để trống!';
+
 const userSchema = new mongoose.Schema({
+  firtname: {
+    type: String,
+    required: [true, message],
+  },
+
+  lastname: {
+    type: String,
+    required: [true, message],
+  },
+
+  fullname: {
+    type: String,
+  },
+
   username: {
     type: String,
-    required: [true, 'Username không được để trống!'],
+    required: [true, message],
   },
 
   phone: {
     type: Number,
-    required: [true, 'Phone không được để trống!'],
+    required: [true, message],
   },
 
   email: {
     type: String,
-    required: [true, 'Email không được để trống!'],
+    required: [true, message],
     unique: true,
     lowercase: true,
     validate: {
@@ -27,13 +43,18 @@ const userSchema = new mongoose.Schema({
 
   password: {
     type: String,
-    required: [true],
+    required: [true, message],
     minlength: [6, 'Password phải nhiều hơn 6 kí tự!'],
   },
 
   token: {
     type: String,
     default: null,
+  },
+
+  isAdmin: {
+    type: Boolean,
+    default: false,
   },
 
 }, { timestamps: true });

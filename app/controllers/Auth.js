@@ -1,3 +1,4 @@
+/* eslint camelcase: "error"*/
 /* auth controllers */
 
 // Models
@@ -39,7 +40,9 @@ class Auth {
    */
 
    signup = (req, res, next) => {
-     const { username, phone, email, password } = req.body;
+     const { firtname, lastname, username, phone, email, password, isAdmin } = req.body;
+     const fullname = firtname + ' ' + lastname;
+
      UserModels.find({ username })
          .exec()
          .then((user) => {
@@ -64,6 +67,7 @@ class Auth {
                } else {
                  const user = new UserModels({
                    username, phone, email, password: hashPassword,
+                   firtname, lastname, fullname, isAdmin,
                  });
                  user
                      .save().then((result) => {
